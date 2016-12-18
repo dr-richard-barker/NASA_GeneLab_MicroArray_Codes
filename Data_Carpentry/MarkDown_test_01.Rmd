@@ -1,0 +1,67 @@
+---
+title: "Data Carpentry Report"
+author: "DRB"
+date: "June 2, 2016"
+output: html_document
+---
+##Global settings 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.width=11)
+```
+
+##Load the data and libraries
+First, we load the _portal_ data from http://kbroman.org/datacarp/ then we installed _dplyr_ and _ggplot2_libraries.
+
+The initial data set has `r nrow(surveys)' rows and 'r ncol(surveys)' columns.
+
+
+Then we down load and install the analysis packages
+install.packages("dplyr")
+install.packages("ggpolot2")
+
+```{r, load_data}
+## download.file(url, filename)
+url <- "http://kbroman.org/datacarp/portal_data_joined.csv"
+filename <- "portal_data_joined.csv"
+surveys <- read.csv ("portal_data_joined.csv")
+
+```
+
+Then we load them...
+
+```{r, echo=FALSE}
+library(dplyr)
+library(ggplot2)
+```
+
+##Clean the data a bit 
+Enter codes used to filter for data and clean up noise...
+```{r}
+surveys_complete <- surveys %>% filter(!is.na(hindfoot_length))%>% filter (!is.na(weight)) %>% filter (sex != "")
+```
+
+## Some boring histogram
+Enter codes used to create the graphs
+```{r}
+surveys_complete %>% ggplot (aes(x=weight)) +
+  geom_histogram(bins=100) 
+```
+
+## Some colorful scatter plots
+```{r}
+surveys_complete %>% 
+filter(species_id %in% c("DM", "DS", "DO")) %>%
+ggplot (aes(x=weight, y=hindfoot_length)) +
+geom_point(aes(color=species_id, shape=species_id))    
+```
+
+## Some tables of data
+
+This makes a simple table (looks better ifyou have more columns)...
+knitr::kable(tab)
+
+This library performs the same function but has more options
+library(xtable)
+xtable
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
