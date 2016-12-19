@@ -1,0 +1,7 @@
+File,Name,Condition
+FC_front.CEL,space_flight_microgravity_1,space_flight_microgravity
+FC_rear.CEL,space_flight_microgravity_2,space_flight_microgravity
+FS_front.CEL,1g_in-flight_reference_centrifuge_1,1g_in-flight_centrifuge
+FS_rear.CEL,1g_in-flight_reference_centrifuge_2,1g_in-flight_centrifuge
+GS_front.CEL,1g_ground_control_1,1g_ground_control
+GS_rear.CEL,1g_ground_control_2,1g_ground_control
