@@ -66,12 +66,3 @@ res_caxvsWT_mg_180_0$threshold <- newthreshold(res_caxvsWT_mg_180_0$logFC, res_c
 
 write.csv(res_WT_mgvscontrol_45_0,file="res_WT_mgvscontrol_45_0.csv")
 write.csv(res_caxvsWT_mg_180_0,file="res_caxvsWT_mg_180_0.csv")
-
-##summary(cars)
-##      speed           dist       
-##  Min.   : 4.0   Min.   :  2.00  
-##  1st Qu.:12.0   1st Qu.: 26.00  
-##  Median :15.0   Median : 36.00  
-##  Mean   :15.4   Mean   : 42.98  
-##  3rd Qu.:19.0   3rd Qu.: 56.00  
-##  Max.   :25.0   Max.   :120.00
